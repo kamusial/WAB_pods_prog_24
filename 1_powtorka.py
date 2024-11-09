@@ -4,6 +4,8 @@
 
 # sprawdz bezpieczenstwo hasla
 
+import funkcje_zmienne
+
 username_list = ['Kamil', 'Dixi', 'Warszawa01']
 username = input('Podaj nazwe uzytkownika:  ')
 
@@ -13,25 +15,9 @@ while True:
         break
 
 while True:
-    pass_ok = True
     passwd1 = input('Podaj haslo: ')
     passwd2 = input('Powtorz haslo: ')
-    if passwd1 != passwd2:
-        print('hasla NIE SĄ takie same')
-        pass_ok = False
-    if len(passwd1) < 5:
-        print('Haslo za krotkie')
-        pass_ok = False
-    if '.' not in passwd1:
-        print('Brak znaku specjalnego')
-        pass_ok = False
-    if passwd1 == passwd1.lower():
-        print('Brak duzej litery')
-        pass_ok = False
-    if passwd1 == passwd1.upper():
-        print('Brak malej litery')
-        pass_ok = False
-    if pass_ok:
+    if funkcje_zmienne.passwd_correct(passwd1, passwd2):
         print('Haslo ok')
         break
 
